@@ -1,1 +1,1 @@
-# nodejs-basict-file-manager
+# nodejs-basics-file-manager
