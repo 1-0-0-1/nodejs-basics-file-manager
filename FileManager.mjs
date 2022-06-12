@@ -3,11 +3,11 @@ import Os from "./Modules/Os.mjs";
 import ArgumentParser from "./Helpers/ArgumentParser.mjs";
 import Exit from "./Modules/Exit.mjs";
 import CommandParser from "./Helpers/CommandParser.mjs";
-import Compress from "./Modules/Compress.mjs";
-import Up from "./Modules/Up.mjs";
-import Cd from "./Modules/Cd.mjs";
-import Ls from "./Modules/Ls.mjs";
-import Uncompress from "./Modules/Uncompress.mjs";
+import Compress from "./Modules/Compress/Compress.mjs";
+import Up from "./Modules/Navigation/Up.mjs";
+import Cd from "./Modules/Navigation/Cd.mjs";
+import Ls from "./Modules/Navigation/Ls.mjs";
+import Uncompress from "./Modules/Compress/Uncompress.mjs";
 
 export default class FileManager {
     userName = ''

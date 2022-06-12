@@ -1,5 +1,5 @@
-import FilemanagerModule from "./FilemanagerModule.mjs";
-import OperationFailedException from "../Exceptions/OperationFailedException.mjs";
+import FilemanagerModule from "../FilemanagerModule.mjs";
+import OperationFailedException from "../../Exceptions/OperationFailedException.mjs";
 import path from "path";
 
 export default class Up extends FilemanagerModule {

@@ -1,6 +1,6 @@
-import FilemanagerModule from "./FilemanagerModule.mjs";
+import FilemanagerModule from "../FilemanagerModule.mjs";
 import fs from "fs";
-import OperationFailedException from "../Exceptions/OperationFailedException.mjs";
+import OperationFailedException from "../../Exceptions/OperationFailedException.mjs";
 import zlib from "zlib";
 
 export default class Uncompress extends FilemanagerModule {
