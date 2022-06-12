@@ -9,6 +9,8 @@ import Cd from "./Modules/Navigation/Cd.mjs";
 import Ls from "./Modules/Navigation/Ls.mjs";
 import Uncompress from "./Modules/Compress/Uncompress.mjs";
 import Add from "./Modules/Files/Add.mjs";
+import Rm from "./Modules/Files/Rm.mjs";
+import Rn from "./Modules/Files/Rn.mjs";
 
 export default class FileManager {
     userName = ''
@@ -23,6 +25,8 @@ export default class FileManager {
         new Cd(this),
         new Ls(this),
         new Add(this),
+        new Rm(this),
+        new Rn(this),
     ];
 
     constructor(args, readlineInterface, workDir) {

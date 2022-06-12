@@ -20,13 +20,13 @@ export default class Uncompress extends FilemanagerModule {
 
     handle(command) {
         try {
-            const srcFilename = command.getArguments()[0];
-            const dstFilename = command.getArguments()[1];
+            const pathToFile = command.getArguments()[0];
+            const pathToDestination = command.getArguments()[1];
 
             const brotli = zlib.createBrotliDecompress();
 
-            const srcFile = fs.createReadStream(srcFilename);
-            const dstFile = fs.createWriteStream(dstFilename, {encoding: 'binary'});
+            const srcFile = fs.createReadStream(pathToFile);
+            const dstFile = fs.createWriteStream(pathToDestination, {encoding: 'binary'});
 
             srcFile.pipe(brotli).pipe(dstFile);
         } catch (error) {

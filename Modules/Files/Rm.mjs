@@ -1,26 +1,24 @@
 import FilemanagerModule from "../FilemanagerModule.mjs";
 import fs from "fs";
 import OperationFailedException from "../../Exceptions/OperationFailedException.mjs";
-import path from "path";
 
-export default class Add extends FilemanagerModule {
+export default class Rm extends FilemanagerModule {
     constructor(filemanager) {
         super(filemanager);
     }
 
     isSupport(command) {
-        return command.getName() === 'add';
+        return command.getName() === 'rm';
     }
 
     isValidCommand(command) {
-        return command.getArguments()[0];
+        return command.getArguments()[0]
+            && fs.existsSync(command.getArguments()[0]);
     }
 
     handle(command) {
         try {
-            const newFilename = path.join(process.cwd(), command.getArguments()[0]);
-            const file = fs.createWriteStream(newFilename)
-            file.close();
+            fs.unlinkSync(command.getArguments()[0]);
         } catch (error) {
             throw new OperationFailedException();
         }

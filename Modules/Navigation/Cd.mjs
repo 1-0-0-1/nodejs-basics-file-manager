@@ -18,8 +18,8 @@ export default class Cd extends FilemanagerModule {
 
     handle(command) {
         try {
-            const targetDir = path.normalize(path.join(process.cwd(), command.getArguments()[0]));
-            process.chdir(targetDir);
+            const pathToDirectory = path.normalize(path.join(process.cwd(), command.getArguments()[0]));
+            process.chdir(pathToDirectory);
         } catch (error) {
             throw new OperationFailedException();
         }
