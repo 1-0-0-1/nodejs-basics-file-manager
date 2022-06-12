@@ -7,6 +7,7 @@ import Compress from "./Modules/Compress.mjs";
 import Up from "./Modules/Up.mjs";
 import Cd from "./Modules/Cd.mjs";
 import Ls from "./Modules/Ls.mjs";
+import Uncompress from "./Modules/Uncompress.mjs";
 
 export default class FileManager {
     userName = ''
@@ -16,6 +17,7 @@ export default class FileManager {
         new Hash(this),
         new Os(this),
         new Compress(this),
+        new Uncompress(this),
         new Up(this),
         new Cd(this),
         new Ls(this),
