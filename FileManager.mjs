@@ -8,6 +8,7 @@ import Up from "./Modules/Navigation/Up.mjs";
 import Cd from "./Modules/Navigation/Cd.mjs";
 import Ls from "./Modules/Navigation/Ls.mjs";
 import Uncompress from "./Modules/Compress/Uncompress.mjs";
+import Add from "./Modules/Files/Add.mjs";
 
 export default class FileManager {
     userName = ''
@@ -21,6 +22,7 @@ export default class FileManager {
         new Up(this),
         new Cd(this),
         new Ls(this),
+        new Add(this),
     ];
 
     constructor(args, readlineInterface, workDir) {
