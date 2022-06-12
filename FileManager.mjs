@@ -13,6 +13,7 @@ import Rm from "./Modules/Files/Rm.mjs";
 import Rn from "./Modules/Files/Rn.mjs";
 import Cp from "./Modules/Files/Cp.mjs";
 import Mv from "./Modules/Files/Mv.mjs";
+import Cat from "./Modules/Files/Cat.mjs";
 
 export default class FileManager {
     userName = ''
@@ -31,6 +32,7 @@ export default class FileManager {
         new Rn(this),
         new Cp(this),
         new Mv(this),
+        new Cat(this),
     ];
 
     constructor(args, readlineInterface, workDir) {
