@@ -20,7 +20,7 @@ export default class Hash extends FilemanagerModule {
     handle(command) {
         try {
             const filename = command.getArguments()[0];
-            const fileData = fs.readFileSync(filename, {encoding: 'utf-8'})
+            const fileData = fs.readFileSync(filename)
             const hash = crypto.createHash('SHA256').update(fileData).digest('hex');
             this.writeln(`Hash: ${hash}`)
         } catch (error) {
