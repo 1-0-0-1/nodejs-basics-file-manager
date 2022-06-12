@@ -4,21 +4,27 @@ import ArgumentParser from "./Helpers/ArgumentParser.mjs";
 import Exit from "./Modules/Exit.mjs";
 import CommandParser from "./Helpers/CommandParser.mjs";
 import Compress from "./Modules/Compress.mjs";
+import Up from "./Modules/Up.mjs";
+import Cd from "./Modules/Cd.mjs";
+import Ls from "./Modules/Ls.mjs";
 
 export default class FileManager {
     userName = ''
-    readlineInterface = undefined
+    readlineInterface = null
     modules = [
         new Exit(this),
         new Hash(this),
         new Os(this),
         new Compress(this),
+        new Up(this),
+        new Cd(this),
+        new Ls(this),
     ];
 
-    constructor(args, readlineInterface) {
+    constructor(args, readlineInterface, workDir) {
         this.userName = this.parseUsernameFromArguments(args);
         this.readlineInterface = readlineInterface;
-
+        process.chdir(workDir);
     }
 
     parseUsernameFromArguments(args) {
@@ -48,6 +54,7 @@ export default class FileManager {
     }
 
     readlineLoop() {
+        console.log(`You are currently in ${process.cwd()}`);
         this.readlineInterface.question('Command: ', (userInput) => {
             const command = CommandParser.parse(userInput);
             try {
