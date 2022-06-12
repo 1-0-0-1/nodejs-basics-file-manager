@@ -4,13 +4,15 @@ import ArgumentParser from "./Helpers/ArgumentParser.mjs";
 import Exit from "./Modules/Exit.mjs";
 import CommandParser from "./Helpers/CommandParser.mjs";
 import Compress from "./Modules/Compress/Compress.mjs";
+import Uncompress from "./Modules/Compress/Uncompress.mjs";
 import Up from "./Modules/Navigation/Up.mjs";
 import Cd from "./Modules/Navigation/Cd.mjs";
 import Ls from "./Modules/Navigation/Ls.mjs";
-import Uncompress from "./Modules/Compress/Uncompress.mjs";
 import Add from "./Modules/Files/Add.mjs";
 import Rm from "./Modules/Files/Rm.mjs";
 import Rn from "./Modules/Files/Rn.mjs";
+import Cp from "./Modules/Files/Cp.mjs";
+import Mv from "./Modules/Files/Mv.mjs";
 
 export default class FileManager {
     userName = ''
@@ -27,6 +29,8 @@ export default class FileManager {
         new Add(this),
         new Rm(this),
         new Rn(this),
+        new Cp(this),
+        new Mv(this),
     ];
 
     constructor(args, readlineInterface, workDir) {

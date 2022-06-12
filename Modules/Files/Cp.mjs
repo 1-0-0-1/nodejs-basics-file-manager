@@ -3,26 +3,27 @@ import fs from "fs";
 import OperationFailedException from "../../Exceptions/OperationFailedException.mjs";
 import path from "path";
 
-export default class Rn extends FilemanagerModule {
+export default class Cp extends FilemanagerModule {
     constructor(filemanager) {
         super(filemanager);
     }
 
     isSupport(command) {
-        return command.getName() === 'rn';
+        return command.getName() === 'cp';
     }
 
     isValidCommand(command) {
         return command.getArguments()[0]
             && command.getArguments()[1]
-            && fs.existsSync(command.getArguments()[0]);
+            && fs.existsSync(command.getArguments()[0])
+            && fs.existsSync(command.getArguments()[1]);
     }
 
     handle(command) {
         try {
             const pathToFile = command.getArguments()[0];
-            const newFilename = command.getArguments()[1];
-            fs.renameSync(pathToFile, path.join(path.dirname(pathToFile), newFilename));
+            const pathToNewDirectory = command.getArguments()[1];
+            fs.copyFileSync(pathToFile, path.join(pathToNewDirectory, path.basename(pathToFile)));
         } catch (error) {
             throw new OperationFailedException();
         }
